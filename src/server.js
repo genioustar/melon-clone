@@ -1,8 +1,8 @@
-import express from "express";
-import morgan from "morgan";
-import session from "express-session";
-import flash from "express-flash";
 import MongoStore from "connect-mongo";
+import express from "express";
+import flash from "express-flash";
+import session from "express-session";
+import morgan from "morgan";
 import { localsMiddleware } from "./middlewares";
 import rootRouter from "./routers/rootRouter";
 

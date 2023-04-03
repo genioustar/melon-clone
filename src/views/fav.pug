@@ -1,0 +1,27 @@
+extends base
+
+block content
+    div
+        table
+            thead
+                tr
+                    th 순위
+                    th 곡정보
+                    th 뮤지션
+                    th 좋아요
+                    th 듣기
+            tbody
+                each song in songs
+                    tr
+                        td= 1
+                        td
+                            img(src='https://cdnimg.melon.co.kr/cm2/album/images/112/11/297/11211297_20230327114349_500.jpg/melon/resize/120/quality/80/optimize')
+                            span #{song.title}
+                        td= song.singer
+                        td= song.favNum
+                        td
+                            i.fa.fa-play-circle-o
+    
+    div.navbar
+        button.btn PlayList 
+        button.btn Fav

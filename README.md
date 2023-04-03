@@ -14,3 +14,7 @@
 
 - Run `npm run build`.
 - Run `npm start`.
+
+## 몽고디비 데이터 위치
+
+C:\data\db

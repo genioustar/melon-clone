@@ -1,8 +1,9 @@
 import express from "express";
-import { home } from "../controllers/songController";
+import { fav, home } from "../controllers/songController";
 
 const rootRouter = express.Router();
 
 rootRouter.get("/", home);
+rootRouter.get("/fav", fav);
 
 export default rootRouter;
