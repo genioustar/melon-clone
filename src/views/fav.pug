@@ -1,7 +1,7 @@
 extends base
 
 block content
-    div
+    div.main-tab
         table
             thead
                 tr
@@ -21,7 +21,11 @@ block content
                         td= song.favNum
                         td
                             i.fa.fa-play-circle-o
-    
+    div.music-control
+        i(class="fas fa-step-backward")
+        i(class="fa fa-solid fa-play")
+        i(class="fas fa-step-forward")
     div.navbar
-        button.btn PlayList 
+        button.btn PlayList
         button.btn Fav
+   
