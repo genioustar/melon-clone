@@ -2,6 +2,12 @@
 import Song from "../models/Song";
 
 export const home = async (req, res) => {
+  const songs = await Song.find();
+  console.log(songs);
+  return res.render("home", { pageTitle: "Home", songs });
+};
+
+export const fav = async (req, res) => {
   // const faker = [
   //   {
   //     title: "야생화",
@@ -80,7 +86,6 @@ export const home = async (req, res) => {
   //     favNum: faker[i].favNum,
   //   });
   // }
-
   // await Song.insertMany(data);
   // const music = new Song({
   //   title: "My Story",
@@ -90,7 +95,6 @@ export const home = async (req, res) => {
   //   fav: false,
   //   favNum: 0,
   // });
-
   // music.save((error, result) => {
   //   if (error) {
   //     console.log(error);
@@ -99,12 +103,4 @@ export const home = async (req, res) => {
   //   }
   //   mongoose.disconnect();
   // });
-
-  return res.render("home", { pageTitle: "Home" });
-};
-
-export const fav = async (req, res) => {
-  const songs = await Song.find();
-  console.log(songs);
-  return res.render("fav", { pageTitle: "Fav Song", songs });
 };

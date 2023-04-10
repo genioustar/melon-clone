@@ -86,6 +86,7 @@ footer .right {
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  z-index: 9999;
 }
 .navbar .btn {
   color: #fff;
@@ -160,4 +161,66 @@ td i {
 .music-control i {
   margin: 0 60px;
   font-size: 30px;
+}
+
+.modal {
+  display: none;
+  position: relative;
+  top: -1400px;
+}
+
+.modal__close {
+  position: absolute;
+  left: 0;
+  top: -90px;
+  font-size: xx-large;
+  z-index: 9999;
+}
+
+.modal__music-play {
+  position: absolute;
+  left: 50%;
+  margin-left: -280px;
+}
+.gray_mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 77, 0, 0.9);
+}
+
+.modal__modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+}
+.modal__modal-info p {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.modal__modal-info span {
+  font-size: large;
+  font-weight: bold;
+}
+
+.modal__like {
+  position: relative;
+  top: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 500;
+}
+.modal__like i {
+  padding-right: 20px;
 }

@@ -1,5 +1,48 @@
 extends base
 
 block content
-    div
-    p 안녕하세요 여러분!
+    div.main-tab
+        table
+            thead
+                tr
+                    th 순위
+                    th 곡정보
+                    th 뮤지션
+                    th 좋아요
+                    th 듣기
+            tbody
+                each song in songs
+                    tr
+                        td= 1
+                        td
+                            a(href="#" class="modal-open") 
+                                img(src='https://cdnimg.melon.co.kr/cm2/album/images/112/11/297/11211297_20230327114349_500.jpg/melon/resize/120/quality/80/optimize')
+                                span #{song.title}
+                        td= song.singer
+                        td= song.favNum
+                        td
+                            i.fa.fa-play-circle-o
+    div.music-control
+        i(class="fas fa-step-backward")
+        i(class="fa fa-solid fa-play")
+        i(class="fas fa-step-forward")
+    div.navbar
+        button.btn PlayList
+        button.btn Fav
+    .gray_mask 
+    .modal
+        a.modal__close(href="#") 
+            i.fas.fa-times-circle
+        .modal__modal-info 
+            p G.Dragon 
+            span 삐딱하게
+        .modal__music-play 
+            iframe(src="https://www.youtube.com/embed/RKhsHGfrFmY", width="560", height="315",  title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", allowfullscreen)
+        .modal__like 
+            i.fas.fa-heart
+            span 2356
+    //- script.
+    //-     const myButton = document.querySelector(".btn");
+    //-     myButton.addEventListener("click", function() {
+    //-         alert("Button clicked!");
+    //-     });

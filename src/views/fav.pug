@@ -15,8 +15,9 @@ block content
                     tr
                         td= 1
                         td
-                            img(src='https://cdnimg.melon.co.kr/cm2/album/images/112/11/297/11211297_20230327114349_500.jpg/melon/resize/120/quality/80/optimize')
-                            span #{song.title}
+                            a(href="#" class="modal-open") 
+                                img(src='https://cdnimg.melon.co.kr/cm2/album/images/112/11/297/11211297_20230327114349_500.jpg/melon/resize/120/quality/80/optimize')
+                                span #{song.title}
                         td= song.singer
                         td= song.favNum
                         td
@@ -28,4 +29,20 @@ block content
     div.navbar
         button.btn PlayList
         button.btn Fav
-   
+    .gray_mask 
+    .modal
+        a.modal__close(href="#") 
+            i.fas.fa-times-circle
+        .modal__modal-info 
+            p G.Dragon 
+            span 삐딱하게
+        .modal__music-play 
+            iframe(src="https://www.youtube.com/embed/RKhsHGfrFmY", width="560", height="315",  title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", allowfullscreen)
+        .modal__like 
+            i.fas.fa-heart
+            span 2356
+    //- script.
+    //-     const myButton = document.querySelector(".btn");
+    //-     myButton.addEventListener("click", function() {
+    //-         alert("Button clicked!");
+    //-     });
