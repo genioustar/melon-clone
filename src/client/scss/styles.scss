@@ -141,7 +141,7 @@ td img {
   margin-right: 10px;
 }
 td i {
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .music-control {
@@ -166,7 +166,7 @@ td i {
 .modal {
   display: none;
   position: relative;
-  top: -1400px;
+  top: -1100px;
 }
 
 .modal__close {
@@ -223,4 +223,15 @@ td i {
 }
 .modal__like i {
   padding-right: 20px;
+}
+
+td a p {
+  display: none;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }

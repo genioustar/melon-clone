@@ -1,0 +1,10 @@
+extends base
+
+block content
+    h1= pageTitle
+    if error
+       p.error= error
+    form(action='/enter', method='POST')
+        label(for='username') Username:
+        input#username(type='text', name='username', required)
+        button(type='submit') Login

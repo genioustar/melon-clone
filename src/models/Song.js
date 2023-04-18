@@ -7,6 +7,7 @@ const songSchema = new mongoose.Schema({
   url: String,
   fav: Boolean,
   favNum: Number,
+  username: String,
 });
 
 const Song = mongoose.model("Song", songSchema);

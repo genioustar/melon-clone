@@ -9,26 +9,28 @@ block content
                     th 곡정보
                     th 뮤지션
                     th 좋아요
-                    th 듣기
+                    th 담기
             tbody
-                each song in songs
+                each song, index in songs
                     tr
-                        td= 1
+                        td= index + 1
                         td
-                            a(href="#" class="modal-open") 
-                                img(src='https://cdnimg.melon.co.kr/cm2/album/images/112/11/297/11211297_20230327114349_500.jpg/melon/resize/120/quality/80/optimize')
+                            a.modal-open(href="#") 
+                                img(src=song.thumb, style={width: '100px', height: 'auto'})
                                 span #{song.title}
+                                p #{song.url}
                         td= song.singer
                         td= song.favNum
                         td
-                            i.fa.fa-play-circle-o
+                            a
+                                i.fa.fa-paperclip
     div.music-control
         i(class="fas fa-step-backward")
         i(class="fa fa-solid fa-play")
         i(class="fas fa-step-forward")
     div.navbar
-        button.btn PlayList
-        button.btn Fav
+        button.btn(onclick="goToPage('/')") PlayList
+        button.btn(onclick="goToPage('/fav')") Fav
     .gray_mask 
     .modal
         a.modal__close(href="#") 
@@ -37,12 +39,11 @@ block content
             p G.Dragon 
             span 삐딱하게
         .modal__music-play 
-            iframe(src="https://www.youtube.com/embed/RKhsHGfrFmY", width="560", height="315",  title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", allowfullscreen)
+            iframe(src="", width="560", height="315",  title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", allowfullscreen)
         .modal__like 
             i.fas.fa-heart
             span 2356
-    //- script.
-    //-     const myButton = document.querySelector(".btn");
-    //-     myButton.addEventListener("click", function() {
-    //-         alert("Button clicked!");
-    //-     });
+    script.
+        function goToPage(url) {
+            window.location.href = url;
+        }

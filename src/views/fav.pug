@@ -27,8 +27,8 @@ block content
         i(class="fa fa-solid fa-play")
         i(class="fas fa-step-forward")
     div.navbar
-        button.btn PlayList
-        button.btn Fav
+       button.btn(onclick="goToPage('/')") PlayList
+        button.btn(onclick="goToPage('/fav')") Fav
     .gray_mask 
     .modal
         a.modal__close(href="#") 
@@ -41,8 +41,7 @@ block content
         .modal__like 
             i.fas.fa-heart
             span 2356
-    //- script.
-    //-     const myButton = document.querySelector(".btn");
-    //-     myButton.addEventListener("click", function() {
-    //-         alert("Button clicked!");
-    //-     });
+    script.
+      function goToPage(url) {
+        window.location.href = url;
+      }
