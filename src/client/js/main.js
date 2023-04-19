@@ -32,38 +32,37 @@ modalOpen.forEach((button) => {
   });
 });
 
+// home에서 담기 눌렀을때!
 const add = document.querySelectorAll("td a i");
 add.forEach((button) => {
   button.addEventListener("click", function (event) {
     console.log(
-      "clicked : ",
-      event.currentTarget.parentNode.parentNode.parentNode
+      event.currentTarget
+        .closest("tr")
         .querySelectorAll("td")[1]
-        .querySelector("img")
-        .getAttribute("src")
+        .textContent.split("http")[0]
     );
     event.preventDefault(); // prevent default anchor tag behavior
+    event.currentTarget.closest("tr").classList.add("hide");
     const myData = {
-      title:
-        event.currentTarget.parentNode.parentNode.parentNode.querySelectorAll(
-          "td"
-        )[1].outerText,
-      singer:
-        event.currentTarget.parentNode.parentNode.parentNode.querySelectorAll(
-          "td"
-        )[2].innerText,
-      thumb: event.currentTarget.parentNode.parentNode.parentNode
+      title: event.currentTarget
+        .closest("tr")
+        .querySelectorAll("td")[1]
+        .textContent.split("http")[0],
+      singer: event.currentTarget.closest("tr").querySelectorAll("td")[2]
+        .innerText,
+      thumb: event.currentTarget
+        .closest("tr")
         .querySelectorAll("td")[1]
         .querySelector("img")
         .getAttribute("src"),
-      url: event.currentTarget.parentNode.parentNode.parentNode
+      url: event.currentTarget
+        .closest("tr")
         .querySelectorAll("td")[1]
-        .textContent.split("http")[1],
+        .querySelector("p").innerText,
       fav: true,
-      favNum:
-        event.currentTarget.parentNode.parentNode.parentNode.querySelectorAll(
-          "td"
-        )[3].textContent,
+      favNum: event.currentTarget.closest("tr").querySelectorAll("td")[3]
+        .textContent,
     }; // data to be sent in the request
     fetch("/", {
       method: "POST",

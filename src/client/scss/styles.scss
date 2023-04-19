@@ -15,8 +15,14 @@
 a {
   color: inherit;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
+a div {
+  margin-right: 50px;
+}
 body {
   font-family: "Noto Sans KR", sans-serif;
   background-color: $bg;
@@ -102,6 +108,10 @@ footer .right {
   background-color: #3a3a3a;
 }
 
+a i {
+  cursor: pointer;
+}
+
 table {
   border: 1px #a39485 solid;
   font-size: 0.9em;
@@ -113,13 +123,17 @@ table {
 }
 
 th {
-  text-align: left;
+  text-align: center;
 }
 
 thead {
   font-weight: bold;
   color: #3a3a3a;
   background: #73685d;
+}
+
+tr td:last-child a {
+  justify-content: center;
 }
 
 td,
@@ -132,6 +146,7 @@ td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background: #3a3a3a;
   vertical-align: middle;
+  text-align: center;
 }
 td img {
   text-align: left;
@@ -234,4 +249,8 @@ form {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+
+.hide {
+  display: none;
 }

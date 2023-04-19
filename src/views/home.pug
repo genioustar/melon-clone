@@ -15,10 +15,12 @@ block content
                     tr
                         td= index + 1
                         td
-                            a.modal-open(href="#") 
-                                img(src=song.thumb, style={width: '100px', height: 'auto'})
-                                span #{song.title}
-                                p #{song.url}
+                            a.modal-open(href="#")
+                                div 
+                                    img(src=song.thumb, style={width: '100px', height: 'auto'})
+                                div
+                                    span #{song.title}
+                                    p #{song.url}
                         td= song.singer
                         td= song.favNum
                         td

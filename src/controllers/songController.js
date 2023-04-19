@@ -1,3 +1,4 @@
+import Fav from "../models/Fav";
 import Song from "../models/Song";
 import User from "../models/User";
 
@@ -12,11 +13,34 @@ export const home = async (req, res) => {
 
   if (req.method === "POST") {
     console.log("body!! : ", req.body);
-    const { title, singer } = req.body;
+    const { title, singer, thumb, url, fav, favNum } = req.body;
     const userId = req.session.userId;
+    const filter = { title, singer, user: userId };
+    const update = {
+      title,
+      singer,
+      thumb,
+      url,
+      fav,
+      favNum,
+      user: userId,
+    };
+    const options = { upsert: true, new: true, setDefaultsOnInsert: true };
+
+    Fav.findOneAndUpdate(filter, update, options)
+      .then((fav) => {
+        console.log(`Favorite item updated: ${fav}`);
+      })
+      .catch((err) => {
+        console.error(`Error updating favorite item: ${err.message}`);
+      });
     // const newFav = new Fav({
     //   title,
     //   singer,
+    //   thumb,
+    //   url,
+    //   fav,
+    //   favNum,
     //   user: userId,
     // });
     // newFav
@@ -31,14 +55,14 @@ export const home = async (req, res) => {
 };
 
 export const fav = async (req, res) => {
-  console.log(req.session.user.username);
-  const where = { username: req.session.user.username }; // retrieve all users with age greater than or equal to 18
-  Song.find(where, (err, songs) => {
+  console.log(req.session.user._id);
+  const where = { username: req.session.user._id }; // retrieve all users with age greater than or equal to 18
+  Fav.find(where, (err, favs) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(songs);
-      res.render("fav", { pageTitle: "fav", songs });
+      console.log(favs);
+      res.render("fav", { pageTitle: "fav", favs });
     }
   });
 };
